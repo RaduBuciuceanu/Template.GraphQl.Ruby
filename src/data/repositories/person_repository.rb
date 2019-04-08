@@ -14,7 +14,13 @@ module Template
                 end
 
                 def get(id)
-                    @persons.each {|person| person.id == id}.first
+                    found = @persons.select {|person| person.id == id}
+
+                    if found.empty?
+                        raise ArgumentError.new 'Id does not exist.'
+                    end
+
+                    found.first
                 end
             end
         end
