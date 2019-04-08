@@ -1,22 +1,22 @@
-require 'src/business/repositories/person_repository'
+require './src/business/repositories/person_repository'
 
-module Data::Repositories
-    PersonRepositoryInterface = Business::Repositories::PersonRepository
+module Template
+    module Data
+        module Repositories
+            class PersonRepository < Business::Repositories::PersonRepository
+                def initialize
+                    @persons = []
+                end
 
-    class PersonRepository < PersonRepositoryInterface
-        private
+                def insert(person)
+                    @persons << person
+                    person
+                end
 
-        @persons = Array.new
-
-        public
-
-        def insert(person)
-            @persons.push(person)
-            person
-        end
-
-        def get(id)
-            @persons.each {|person| person.id == id}.first
+                def get(id)
+                    @persons.each {|person| person.id == id}.first
+                end
+            end
         end
     end
 end

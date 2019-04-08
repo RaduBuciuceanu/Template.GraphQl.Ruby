@@ -1,8 +1,15 @@
-require_relative 'business/models/person'
+require './src/presentation/ioc/container'
+require './src/business/models/person'
 
-Person = Business::Models::Person
+module Template
+    create_person = Presentation::Ioc::Container[:create_person]
+    get_person = Presentation::Ioc::Container[:get_person]
 
-person = Person.new
-person.first_name = 'First name'
+    person = Business::Models::Person.new
+    person.id = 'Random id here.'
+    person.first_name = 'Random first name here.'
+    person.last_name = 'Random first name here.'
 
-puts person.first_name
+    create_person.execute(person)
+    p get_person.execute(person.id)
+end
