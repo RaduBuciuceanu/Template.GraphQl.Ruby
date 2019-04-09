@@ -19,6 +19,7 @@ source 'https://rubygems.org' do
 
     group :test do
         gem 'rspec', '3.8.0'
+        gem 'rspec_junit_formatter', '0.4.1'
     end
 end
 
