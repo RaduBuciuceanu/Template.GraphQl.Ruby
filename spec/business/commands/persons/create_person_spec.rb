@@ -3,7 +3,7 @@ require './src/business/commands/persons/create_person'
 require './src/business/models/person'
 
 describe Template::Business::Commands::Persons::CreatePerson do
-    let(:person) {build_person}
+    let(:person) {build(:person_model)}
     let(:repository) {double(:insert => person)}
 
     subject(:instance) {described_class.new(repository)}
@@ -20,15 +20,5 @@ describe Template::Business::Commands::Persons::CreatePerson do
 
             expect(actual).to be(person)
         end
-    end
-
-    private
-
-    def build_person
-        person = Template::Business::Models::Person.new
-        person.id = 'Random id here.'
-        person.first_name = 'Random first name here.'
-        person.last_name = 'Random last name here.'
-        person
     end
 end
