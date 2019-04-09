@@ -4,6 +4,7 @@ source 'https://rubygems.org' do
     group :common do
         gem 'dry-auto_inject', '0.6.0'
         gem 'dry-container', '0.7.0'
+        gem 'graphql', '1.9.4'
     end
 
     group :test do
