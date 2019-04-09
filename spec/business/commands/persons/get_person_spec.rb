@@ -11,9 +11,9 @@ describe Template::Business::Commands::Persons::GetPerson do
 
     context 'execute' do
         it 'invokes get from person repository' do
-            expect(person_repository).to receive(:get).with(person.id)
-
             instance.execute(person.id)
+
+            expect(person_repository).to have_received(:get).with(person.id)
         end
 
         it 'returns result returned by get from person repository' do
