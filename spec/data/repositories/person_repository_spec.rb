@@ -3,7 +3,7 @@ require './src/data/repositories/person_repository'
 require './src/business/models/person'
 
 describe Template::Data::Repositories::PersonRepository do
-    let(:person) {build_person}
+    let(:person) {build(:person_model)}
 
     subject(:instance) {described_class.new}
 
@@ -33,15 +33,5 @@ describe Template::Data::Repositories::PersonRepository do
 
             expect {instance.get(nonexistent_id)}.to raise_error(ArgumentError, 'Id does not exist.')
         end
-    end
-
-    private
-
-    def build_person
-        person = Template::Business::Models::Person.new
-        person.id = 'Random id here.'
-        person.first_name = 'Random first name here.'
-        person.last_name = 'Random last name here.'
-        person
     end
 end
