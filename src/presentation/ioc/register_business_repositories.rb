@@ -5,7 +5,7 @@ module Template
         module Ioc
             class RegisterBusinessRepositories
                 def self.execute(container)
-                    container.register :person_repository, Data::Repositories::PersonRepository.new
+                    container.register(:person_repository, Data::Repositories::PersonRepository.new)
                 end
             end
         end
