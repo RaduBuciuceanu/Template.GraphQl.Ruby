@@ -8,8 +8,8 @@ module Template
             class Container
                 extend Dry::Container::Mixin
 
-                RegisterBusinessRepositories::execute self
-                RegisterBusinessCommands::execute self
+                RegisterBusinessRepositories::execute(self)
+                RegisterBusinessCommands::execute(self)
             end
         end
     end
