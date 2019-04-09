@@ -9,18 +9,22 @@ module Template
                 end
 
                 def insert(person)
-                    @persons << person
-                    person
+                    unless @persons.any? {|currentPerson| currentPerson.id == person.id}
+                        @persons << person
+                        return person
+                    end
+
+                    raise ArgumentError.new 'Id already exists.'
                 end
 
                 def get(id)
                     found = @persons.select {|person| person.id == id}
 
-                    if found.empty?
-                        raise ArgumentError.new 'Id does not exist.'
+                    if found.any?
+                        return found.first
                     end
 
-                    found.first
+                    raise ArgumentError.new 'Id does not exist.'
                 end
             end
         end

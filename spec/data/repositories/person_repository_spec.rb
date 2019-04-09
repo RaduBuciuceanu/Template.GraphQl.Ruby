@@ -15,6 +15,12 @@ describe 'PersonRepository' do
         it 'returns inserted person' do
             @instance.insert(Person.new)
         end
+
+        it 'throws when id already exists' do
+            @instance.insert(@existent_person)
+
+            expect{@instance.insert(@existent_person)}.to raise_error ArgumentError, 'Id already exists.'
+        end
     end
 
     context :get do
