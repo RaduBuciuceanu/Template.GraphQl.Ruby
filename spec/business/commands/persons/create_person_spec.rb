@@ -10,9 +10,9 @@ describe Template::Business::Commands::Persons::CreatePerson do
 
     context 'execute' do
         it 'invokes insert from person repository with right person' do
-            expect(repository).to receive(:insert).with(person)
-
             instance.execute(person)
+
+            expect(repository).to have_received(:insert).with(person)
         end
 
         it 'returns person returned by insert from person repository' do
