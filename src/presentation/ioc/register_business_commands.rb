@@ -6,8 +6,8 @@ module Template
         module Ioc
             class RegisterBusinessCommands
                 def self.execute(container)
-                    container.register :create_person, Business::Commands::Persons::CreatePerson.new(container[:person_repository])
-                    container.register :get_person, Business::Commands::Persons::GetPerson.new(container[:person_repository])
+                    container.register(:create_person, Business::Commands::Persons::CreatePerson.new(container[:person_repository]))
+                    container.register(:get_person, Business::Commands::Persons::GetPerson.new(container[:person_repository]))
                 end
             end
         end
