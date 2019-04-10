@@ -10,7 +10,7 @@ module Template
                 def self.execute(container)
                     container.register(:generate_id, Business::Commands::GenerateId.new)
                     container.register(:person_input_to_person, Business::Commands::Persons::PersonInputToPerson.new(container[:generate_id]))
-                    container.register(:create_person, Business::Commands::Persons::CreatePerson.new(container[:person_repository]))
+                    container.register(:create_person, Business::Commands::Persons::CreatePerson.new(container[:person_input_to_person], container[:person_repository]))
                     container.register(:get_person, Business::Commands::Persons::GetPerson.new(container[:person_repository]))
                 end
             end
