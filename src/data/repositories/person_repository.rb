@@ -12,6 +12,7 @@ module Template
                     id_already_exists = @persons.any? {|currentPerson| currentPerson.id == person.id}
                     raise ArgumentError.new('Id already exists.') if id_already_exists
                     @persons << person
+                    get(person.id)
                 end
 
                 def get(id)

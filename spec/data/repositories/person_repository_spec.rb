@@ -9,7 +9,9 @@ describe Template::Data::Repositories::PersonRepository do
 
     context 'insert' do
         it 'returns inserted person' do
-            instance.insert(person)
+            actual = instance.insert(person)
+
+            expect(actual).to be(person)
         end
 
         it 'throws when id already exists' do
