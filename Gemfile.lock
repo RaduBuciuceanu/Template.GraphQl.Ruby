@@ -47,6 +47,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (= 5.2.3)!
   dry-auto_inject (= 0.6.0)!
   dry-container (= 0.7.0)!
   factory_bot (= 5.0.2)!
